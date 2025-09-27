@@ -1,0 +1,76 @@
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f9fafb; /* Tailwind bg-gray-50 */
+    color: #111827; /* Tailwind text-gray-900 */
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji"; /* Tailwind font-sans */
+  }
+  input,
+  select,
+  textarea {
+    color: #111827; /* Tailwind text-gray-900 */
+    background-color: #fff; /* Tailwind bg-white */
+  }
+  input::placeholder,
+  select::placeholder,
+  textarea::placeholder {
+    color: #6b7280; /* Tailwind placeholder-gray-500 */
+    opacity: 1;
+  }
+  /* Dark mode for body and form elements */
+  html.dark body {
+    background-color: #0f172a; /* gray-950 */
+    color: #f1f5f9; /* gray-100 */
+  }
+  html.dark input,
+  html.dark select,
+  html.dark textarea {
+    color: #f1f5f9; /* gray-100 */
+    background-color: #0f172a; /* gray-950 */
+  }
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    body {
+      background: #fff !important;
+      color: #000 !important;
+    }
+  }
+}
+
+/* RECOMMENDATION: For better integration with Tailwind, you should move
+  the @keyframes and custom animation classes below into your tailwind.config.js file.
+*/
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-up {
+  animation: fade-in-up 300ms ease-out both;
+}
+@keyframes water-flow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 500px 500px;
+  }
+}
+/* Custom utility for water-flow animation */
+.animate-water-flow {
+  animation: water-flow 45s linear infinite;
+}
